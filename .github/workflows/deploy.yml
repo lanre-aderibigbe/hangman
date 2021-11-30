@@ -1,5 +1,7 @@
 name: GitHub Actions Demo
-on: [pull_request,workflow_dispatch]
+on: [pull_request]
+env:
+  node-version: '14.x'
 
 jobs:
   dummy:
@@ -19,6 +21,20 @@ jobs:
   # Docker-Build-Push:
   #   uses: adelanre/shared-pipeline/ci/docker.yml@main
   #   with:
-  #     imageTag: ${GITHUB_RUNNER_TAG} #change to git tag or commit
-  # cd:
+  #     imageTag: ${{ GITHUB_SHA }} #change to git tag or commit
+  # deploy-app:
   #   uses: https://github.com/adelanre/shared-pipeline/blob/main/cd/eks.yml@main
+
+# name: CD
+# on: [workflow_call]
+
+# jobs:
+#   deploy_to_review:
+#      ...
+
+#   deploy_to_staging:
+#      ...
+
+#   deploy_to_production:
+#     environment: production
+#     …
