@@ -14,7 +14,7 @@ jobs:
         run: echo Hello, world!
 
   Build-And-Package:
-    uses: adelanre/shared-pipeline/ci/node.js.yml@main
+    uses: adelanre/shared-pipeline/.github/workflows/ci/node.js.yml@main
     with:
       nodeVersion: "10.1"
   
