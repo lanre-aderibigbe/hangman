@@ -17,7 +17,7 @@ jobs:
   # Docker-Build-Push:
   #   uses: adelanre/shared-pipeline/ci/docker.yml@main
   #   with:
-  #     imageTag: ${{ GITHUB_SHA }} #change to git tag or commit
+  #     imageTag: ${{ GITHUB_SHA }} #change to git tags or commit
   # deploy-app:
   #   uses: https://github.com/adelanre/shared-pipeline/blob/main/cd/eks.yml@main
 
