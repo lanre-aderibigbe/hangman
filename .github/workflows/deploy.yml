@@ -1,22 +1,14 @@
 name: GitHub Actions Demo
-on: [pull_request]
+on: [pull_request,workflow_dispatch]
 
-jobs:
-  ci:
-    uses: adelanre/shared-pipeline/ci/node.js.yml@main
-  # cd:
-  #   uses: https://github.com/adelanre/shared-pipeline/blob/main/cd/eks.yml@main
-
-name: ci
-on: [workflow_call]
 jobs:
   Build-And-Package:
-    ...
-
-# name: cd
-# on: [workflow_call]
-# jobs:
-#   Deploy-to-Sandbox:
-#     ...
-#   Deploy-to-QA:
-#     ....
+    uses: adelanre/shared-pipeline/.github/workflows/ci/node.js.yml@main
+    with:
+      nodeVersion: "10.1"
+  # Docker-Build-Push:
+  #   uses: adelanre/shared-pipeline/.github/workflows/ci/docker.yml@main
+  #   with:
+  #     imageTag: ${GITHUB_RUNNER_TAG} #change to git tag or commit
+  # cd:
+  #   uses: https://github.com/adelanre/shared-pipeline/blob/main/cd/eks.yml@main
