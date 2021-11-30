@@ -13,6 +13,10 @@ jobs:
 
   Build-And-Package:
     uses: adelanre/shared-pipeline/.github/workflows/node.js.yml@main
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
   
   # Docker-Build-Push:
   #   uses: adelanre/shared-pipeline/ci/docker.yml@main
