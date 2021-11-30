@@ -1,0 +1,22 @@
+name: GitHub Actions Demo
+on: [pull_request]
+
+jobs:
+  ci:
+    uses: adelanre/shared-pipeline/ci/node.js.yml@main
+  # cd:
+  #   uses: https://github.com/adelanre/shared-pipeline/blob/main/cd/eks.yml@main
+
+name: ci
+on: [workflow_call]
+jobs:
+  Build-And-Package:
+    ...
+
+# name: cd
+# on: [workflow_call]
+# jobs:
+#   Deploy-to-Sandbox:
+#     ...
+#   Deploy-to-QA:
+#     ...
