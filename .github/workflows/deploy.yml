@@ -18,7 +18,7 @@ jobs:
   Build-And-Package:
     uses: adelanre/shared-pipeline/.github/workflows/node.js.yml@main
     with:
-      node-version: [12.x, 14.x]
+      node-version: 12.x
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
   
   # Docker-Build-Push:
