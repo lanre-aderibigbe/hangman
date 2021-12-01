@@ -15,10 +15,10 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-  Build-And-Package:
+  buildApp:
     uses: adelanre/shared-pipeline/.github/workflows/node.js.yml@main
     with:
       node-version: 12.x
   
-  Docker-Build-Push:
+  docker:
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
