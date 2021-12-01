@@ -8,13 +8,13 @@ on:
 jobs:
 
   buildApp:
-    uses: adelanre/shared-pipeline/.github/workflows/node.js.yml@main
+    uses: adelanre/shared-pipeline/.github/workflow-templates/node.js.yml@main
     with:
       node-version: 12.x
 
   docker:
     needs: [buildApp]
-    uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
+    uses: adelanre/shared-pipeline/.github/workflow-templates/docker.yml@main
   
   dummyStep:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
     needs: [docker]
     steps:
     - run: echo "This will scan container"
-    #uses: adelanre/shared-pipeline/.github/workflows/container-scan.yml@main
+    #uses: adelanre/shared-pipeline/.github/workflow-templates/container-scan.yml@main
 
   deploy-sandbox:
     runs-on: ubuntu-latest
