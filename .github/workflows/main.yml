@@ -58,4 +58,9 @@ jobs:
     needs: [deploy-staging]
     steps:
     - run: echo "This will deploy the workload"
-
+  
+  deploy-prod:
+    runs-on: ubuntu-latest
+    needs: [run-automated-test,run-integration-test]
+    steps:
+    - run: echo "This will deploy the workload"
