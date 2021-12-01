@@ -11,7 +11,16 @@ jobs:
     uses: adelanre/shared-pipeline/.github/workflows/node.js.yml@main
     with:
       node-version: 12.x
-  
+
   docker:
     needs: [buildApp]
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
+
+  containerScan:
+    needs: [docker]
+    run: echo "This will scan container"
+    #uses: adelanre/shared-pipeline/.github/workflows/container-scan.yml@main
+
+  deploy-sandbox:
+     needs: [docker,containerScan]
+     run: echo "This will deploy the workload"
