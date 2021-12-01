@@ -20,5 +20,3 @@ jobs:
   
   docker:
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
-    with:
-      image-tag: $GITHUB_REF_NAME
