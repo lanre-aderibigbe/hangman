@@ -17,10 +17,15 @@ jobs:
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
 
   containerScan:
+    runs-on: ubuntu-latest
     needs: [docker]
-    run: echo "This will scan container"
+
+    steps:
+    - run: echo "This will scan container"
     #uses: adelanre/shared-pipeline/.github/workflows/container-scan.yml@main
 
   deploy-sandbox:
+     runs-on: ubuntu-latest
      needs: [docker,containerScan]
-     run: echo "This will deploy the workload"
+     steps:
+     - run: echo "This will deploy the workload"
