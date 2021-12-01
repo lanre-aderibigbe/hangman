@@ -10,10 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, $GITHUB_SHA!
 
   buildApp:
     uses: adelanre/shared-pipeline/.github/workflows/node.js.yml@main
@@ -22,3 +20,5 @@ jobs:
   
   docker:
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
+    with:
+      image-tag: $GITHUB_REF_NAME
