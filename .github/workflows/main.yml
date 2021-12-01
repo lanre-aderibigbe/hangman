@@ -40,3 +40,22 @@ jobs:
     needs: [deploy-sandbox,containerScan]
     steps:
     - run: echo "This will deploy the workload"
+  
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: [deploy-qa]
+    steps:
+    - run: echo "This will deploy the workload"
+
+  run-automated-test:
+    runs-on: ubuntu-latest
+    needs: [deploy-staging]
+    steps:
+    - run: echo "This will deploy the workload"
+  
+  run-integration-test:
+    runs-on: ubuntu-latest
+    needs: [deploy-staging]
+    steps:
+    - run: echo "This will deploy the workload"
+
