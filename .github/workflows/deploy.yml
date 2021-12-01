@@ -15,17 +15,22 @@ jobs:
   docker:
     needs: [buildApp]
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
+  
+  dummyStep:
+    runs-on: ubuntu-latest
+    needs: [buildApp]
+    steps:
+    - run: echo "Just a dummy step"
 
   containerScan:
     runs-on: ubuntu-latest
     needs: [docker]
-
     steps:
     - run: echo "This will scan container"
     #uses: adelanre/shared-pipeline/.github/workflows/container-scan.yml@main
 
   deploy-sandbox:
-     runs-on: ubuntu-latest
-     needs: [docker,containerScan]
-     steps:
-     - run: echo "This will deploy the workload"
+    runs-on: ubuntu-latest
+    needs: [docker,containerScan]
+    steps:
+    - run: echo "This will deploy the workload"
