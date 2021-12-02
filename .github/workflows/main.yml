@@ -16,9 +16,8 @@ jobs:
     needs: [buildApp]
     uses: adelanre/shared-pipeline/.github/workflows/docker.yml@main
   
-  codeScan:
+  code-quality:
     runs-on: ubuntu-latest
-    needs: [buildApp]
     steps:
     - run: echo "Just a dummy step"
 
@@ -33,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [docker]
     steps:
-    - run: echo "This will deploy the workload"
+    - run: echo "This will deploy the workload" #PAT: glpat-yScB5vrg8Cat5bSztfxJ
   
   deploy-qa:
     runs-on: ubuntu-latest
